@@ -486,6 +486,19 @@ textarea{
   font-weight:900;
 }
 
+/* ADDED: RESET BUTTON */
+
+.reset-btn{
+  background:white;
+  border:1px solid var(--border);
+  color:var(--ink);
+}
+
+.reset-btn:hover{
+  color:var(--sage);
+  border-color:var(--sage);
+}
+
 /* TOOL CARDS */
 
 .feature-card{
@@ -666,6 +679,29 @@ footer{
   padding-top:20px;
   font-size:12px;
   opacity:.65;
+}
+
+/* ADDED: BACK TO TOP */
+
+.back-to-top{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  margin-left:10px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:50%;
+  color:white;
+  font-size:20px;
+  font-weight:900;
+  transition:.2s ease;
+  vertical-align:middle;
+}
+
+.back-to-top:hover{
+  background:rgba(255,255,255,.12);
+  transform:translateY(-2px);
 }
 
 /* HIDDEN */
@@ -1139,9 +1175,17 @@ footer{
           </div>
 
 
-          <button class="btn btn-primary" onclick="calculateRate()">
-            Calculate My Rate
-          </button>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+
+            <button class="btn btn-primary" onclick="calculateRate()">
+              Calculate My Rate
+            </button>
+
+            <button class="btn reset-btn" onclick="resetRate()">
+              ↺ Reset / Clear
+            </button>
+
+          </div>
 
         </div>
 
@@ -1283,6 +1327,19 @@ footer{
               <div style="font-size:22px;font-weight:900;margin-top:8px;">
                 <span id="conversionResult">—</span>
               </div>
+
+
+              <div style="margin-top:12px;">
+
+                <button
+                  class="btn reset-btn"
+                  onclick="resetConverter()"
+                >
+                  ↺ Reset / Clear
+                </button>
+
+              </div>
+
 
               <div class="form-note" style="margin-top:8px;">
                 Reference conversion only. The live-rate connection will be
@@ -2137,6 +2194,15 @@ footer{
           Freelancer Career Toolkit
         </small>
 
+        <a
+          href="#top"
+          class="back-to-top"
+          title="Back to Top"
+          aria-label="Back to Top"
+        >
+          ↑
+        </a>
+
       </div>
 
 
@@ -2511,6 +2577,54 @@ function calculateRate(){
 
 
 /* =========================================================
+   ADDED: RESET RATE CALCULATOR
+========================================================= */
+
+function resetRate(){
+
+  document.getElementById("rateCurrency").value =
+    "PHP";
+
+  document.getElementById("monthlyIncome").value =
+    "";
+
+  document.getElementById("hoursWeek").value =
+    "40";
+
+  document.getElementById("billable").value =
+    "70";
+
+  document.getElementById("workSource").selectedIndex =
+    0;
+
+  document.getElementById("paymentMethod").selectedIndex =
+    0;
+
+  document.getElementById("taxRate").value =
+    "10";
+
+
+  document.getElementById("hourlyResult").textContent =
+    "—";
+
+  document.getElementById("monthlyResult").textContent =
+    "—";
+
+  document.getElementById("billableResult").textContent =
+    "—";
+
+  document.getElementById("usdResult").textContent =
+    "—";
+
+
+  localStorage.removeItem(
+    "rrc_rate_result"
+  );
+
+}
+
+
+/* =========================================================
    RATE CARD
 ========================================================= */
 
@@ -2652,6 +2766,29 @@ function swapCurrencies(){
   to.value =
     temp;
 
+
+  convertCurrency();
+
+}
+
+
+/* =========================================================
+   ADDED: RESET CURRENCY CONVERTER
+========================================================= */
+
+function resetConverter(){
+
+  document.getElementById("convertAmount").value =
+    "1";
+
+  document.getElementById("convertFrom").value =
+    "USD";
+
+  document.getElementById("convertTo").value =
+    "PHP";
+
+  document.getElementById("conversionResult").textContent =
+    "—";
 
   convertCurrency();
 
