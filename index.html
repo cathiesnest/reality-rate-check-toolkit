@@ -1434,9 +1434,17 @@ footer{
           </div>
 
 
-          <button class="btn btn-primary" onclick="simplifyCV()">
-            Simplify My CV
-          </button>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+
+            <button class="btn btn-primary" onclick="simplifyCV()">
+              Simplify My CV
+            </button>
+
+            <button class="btn reset-btn" onclick="resetCV()">
+              ↺ Reset / Clear
+            </button>
+
+          </div>
 
 
           <div class="ai-notice">
@@ -2903,6 +2911,37 @@ function simplifyCV(){
       role,
       cv
     })
+  );
+
+}
+
+
+/* =========================================================
+   ADDED: RESET CV
+========================================================= */
+
+function resetCV(){
+
+  document.getElementById("targetRole").value =
+    "";
+
+  document.getElementById("cvText").value =
+    "";
+
+  document.getElementById("cvFile").value =
+    "";
+
+  document.getElementById("cvPreview").innerHTML = `
+    <h3>Your simplified CV will appear here.</h3>
+
+    <p style="color:var(--muted);font-size:14px;">
+      Add your target role and existing CV, then select
+      <strong>Simplify My CV</strong>.
+    </p>
+  `;
+
+  localStorage.removeItem(
+    "rrc_cv"
   );
 
 }
