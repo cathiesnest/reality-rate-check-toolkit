@@ -1,0 +1,3429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rate Reality Check — Freelancer Career Toolkit</title>
+
+<meta name="description" content="Rate Reality Check — a practical freelancer career toolkit for knowing your rate, simplifying your CV, building your portfolio and creating invoices.">
+
+<style>
+:root{
+  --sage:#5B7F73;
+  --sage-dark:#3F5C52;
+  --sage-light:#E8EFEA;
+  --cream:#F6F1E8;
+  --warm:#EFE6D8;
+  --gold:#B99655;
+  --gold-light:#F3EBDD;
+  --ink:#2B3A32;
+  --muted:#68736D;
+  --white:#FFFFFF;
+  --border:#E1E5E0;
+  --danger:#A85A5A;
+  --coral:#C9926B;
+  --shadow:0 12px 35px rgba(43,58,50,.08);
+  --radius:20px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.6;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1160px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(246,241,232,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  letter-spacing:-.3px;
+}
+
+.logo-mark{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  background:var(--sage);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+}
+
+.logo small{
+  display:block;
+  color:var(--muted);
+  font-weight:500;
+  font-size:11px;
+  letter-spacing:.5px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  font-size:14px;
+  font-weight:700;
+}
+
+.nav-links a:hover{
+  color:var(--sage);
+}
+
+.nav-cta{
+  padding:10px 16px;
+  background:var(--sage);
+  color:white;
+  border-radius:999px;
+}
+
+/* HERO */
+
+.hero{
+  padding:72px 0 55px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:45px;
+  align-items:center;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--gold-light);
+  color:var(--sage-dark);
+  border:1px solid #eadfc9;
+  padding:8px 13px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.3px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(40px,6vw,68px);
+  line-height:1.03;
+  letter-spacing:-2.8px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:var(--sage);
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:650px;
+  font-size:18px;
+  margin-bottom:28px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  border:0;
+  border-radius:14px;
+  padding:13px 19px;
+  font-weight:800;
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.btn-primary{
+  background:var(--sage);
+  color:white;
+}
+
+.btn-secondary{
+  background:white;
+  border:1px solid var(--border);
+  color:var(--ink);
+}
+
+.hero-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.hero-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.badge{
+  background:var(--sage-light);
+  color:var(--sage-dark);
+  padding:7px 11px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.rate-preview{
+  background:var(--cream);
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:14px;
+}
+
+.rate-preview small{
+  color:var(--muted);
+}
+
+.rate-preview strong{
+  display:block;
+  font-size:34px;
+  margin-top:4px;
+}
+
+.mini-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.mini-box{
+  background:var(--sage-light);
+  border-radius:15px;
+  padding:15px;
+}
+
+.mini-box small{
+  color:var(--muted);
+  display:block;
+}
+
+.mini-box strong{
+  font-size:17px;
+}
+
+/* SECTIONS */
+
+section{
+  padding:65px 0;
+}
+
+.section-head{
+  max-width:720px;
+  margin-bottom:30px;
+}
+
+.section-head h2{
+  font-size:36px;
+  line-height:1.15;
+  letter-spacing:-1px;
+  margin-bottom:10px;
+}
+
+.section-head p{
+  color:var(--muted);
+}
+
+/* TOOL NAV */
+
+.tool-nav{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:30px;
+}
+
+.tool-tab{
+  border:1px solid var(--border);
+  background:white;
+  padding:17px;
+  border-radius:16px;
+  text-align:left;
+  font-weight:800;
+  color:var(--ink);
+}
+
+.tool-tab small{
+  display:block;
+  color:var(--muted);
+  font-weight:500;
+  margin-top:3px;
+}
+
+.tool-tab.active{
+  background:var(--sage);
+  color:white;
+  border-color:var(--sage);
+}
+
+.tool-tab.active small{
+  color:#eaf1ed;
+}
+
+/* CARDS */
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+
+.three-col{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+/* FORMS */
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:12px;
+  padding:12px 13px;
+  outline:none;
+  color:var(--ink);
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--sage);
+  box-shadow:0 0 0 3px rgba(91,127,115,.10);
+}
+
+textarea{
+  min-height:145px;
+  resize:vertical;
+}
+
+.form-note{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:5px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+/* RATE RESULT */
+
+.result{
+  background:var(--sage-dark);
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  margin-top:22px;
+}
+
+.result h3{
+  margin-bottom:15px;
+}
+
+.result-main{
+  background:rgba(255,255,255,.09);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:14px;
+}
+
+.result-main small{
+  opacity:.8;
+}
+
+.result-main strong{
+  display:block;
+  font-size:38px;
+  line-height:1.1;
+  margin-top:5px;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.result-box{
+  background:rgba(255,255,255,.08);
+  padding:13px;
+  border-radius:13px;
+}
+
+.result-box small{
+  display:block;
+  opacity:.75;
+  font-size:11px;
+}
+
+.result-box strong{
+  display:block;
+  margin-top:3px;
+}
+
+.disclaimer{
+  background:var(--gold-light);
+  border:1px solid #e9ddc6;
+  padding:13px 15px;
+  border-radius:13px;
+  color:var(--sage-dark);
+  font-size:12px;
+  margin-top:15px;
+}
+
+/* CONVERTER */
+
+.converter{
+  margin-top:20px;
+  background:var(--cream);
+  border-radius:18px;
+  padding:20px;
+}
+
+.converter-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:12px;
+  align-items:end;
+}
+
+.swap{
+  width:44px;
+  height:44px;
+  border:1px solid var(--border);
+  background:white;
+  border-radius:50%;
+  font-weight:900;
+}
+
+/* TOOL CARDS */
+
+.feature-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:23px;
+  box-shadow:var(--shadow);
+}
+
+.feature-icon{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  background:var(--sage-light);
+  border-radius:14px;
+  font-size:20px;
+  margin-bottom:15px;
+}
+
+.feature-card h3{
+  margin-bottom:7px;
+}
+
+.feature-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* PREVIEW */
+
+.preview{
+  background:var(--cream);
+  border:1px dashed #cfd8d1;
+  border-radius:18px;
+  padding:25px;
+  min-height:200px;
+}
+
+.preview h3{
+  margin-bottom:10px;
+}
+
+.preview-line{
+  padding:8px 0;
+  border-bottom:1px solid var(--border);
+  font-size:14px;
+}
+
+.preview-line strong{
+  display:inline-block;
+  min-width:130px;
+}
+
+/* INVOICE */
+
+.invoice-preview{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+}
+
+.invoice-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:18px;
+  margin-bottom:18px;
+}
+
+.invoice-title{
+  font-size:30px;
+  font-weight:900;
+}
+
+.invoice-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:20px 0;
+}
+
+.invoice-table th,
+.invoice-table td{
+  padding:10px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+  font-size:13px;
+}
+
+.invoice-total{
+  margin-left:auto;
+  max-width:280px;
+}
+
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  padding:7px 0;
+}
+
+.total-row.final{
+  border-top:2px solid var(--ink);
+  margin-top:8px;
+  padding-top:12px;
+  font-weight:900;
+  font-size:18px;
+}
+
+/* NEXT STEPS */
+
+.next-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:190px;
+}
+
+.next-card a{
+  color:var(--sage);
+  font-weight:900;
+}
+
+/* AI NOTICE */
+
+.ai-notice{
+  background:var(--sage-light);
+  border:1px solid #d5e1db;
+  border-radius:16px;
+  padding:17px;
+  margin-top:18px;
+  font-size:13px;
+}
+
+.ai-notice strong{
+  color:var(--sage-dark);
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--sage-dark);
+  color:white;
+  padding:40px 0;
+  margin-top:20px;
+}
+
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:center;
+}
+
+.footer-brand{
+  font-weight:900;
+}
+
+.footer-brand small{
+  display:block;
+  opacity:.7;
+  font-weight:500;
+  margin-top:3px;
+}
+
+.footer-links{
+  display:flex;
+  gap:18px;
+  font-size:13px;
+  opacity:.9;
+}
+
+.copyright{
+  border-top:1px solid rgba(255,255,255,.12);
+  margin-top:25px;
+  padding-top:20px;
+  font-size:12px;
+  opacity:.65;
+}
+
+/* HIDDEN */
+
+.tool-section{
+  display:none;
+}
+
+.tool-section.active{
+  display:block;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(20,30,25,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  border-radius:22px;
+  padding:28px;
+  width:min(520px,100%);
+  box-shadow:0 25px 70px rgba(0,0,0,.2);
+}
+
+.modal-box h3{
+  margin-bottom:8px;
+}
+
+.modal-box p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+  .hero-grid,
+  .two-col{
+    grid-template-columns:1fr;
+  }
+
+  .three-col{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .tool-nav{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:650px){
+  .nav{
+    min-height:64px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    padding:48px 0 35px;
+  }
+
+  .hero h1{
+    letter-spacing:-1.8px;
+  }
+
+  section{
+    padding:45px 0;
+  }
+
+  .three-col,
+  .form-row,
+  .converter-grid{
+    grid-template-columns:1fr;
+  }
+
+  .result-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tool-nav{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-links{
+    flex-wrap:wrap;
+  }
+}
+
+/* PRINT */
+
+@media print{
+  header,
+  .hero,
+  .tool-nav,
+  .btn,
+  footer,
+  .section-head,
+  .ai-notice,
+  .disclaimer{
+    display:none!important;
+  }
+
+  body{
+    background:white;
+  }
+
+  .tool-section{
+    display:block!important;
+  }
+
+  .card,
+  .invoice-preview{
+    box-shadow:none;
+    border:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a href="#top" class="logo">
+      <div class="logo-mark">RR</div>
+      <div>
+        Rate Reality Check
+        <small>Freelancer Career Toolkit</small>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#toolkit">Toolkit</a>
+      <a href="#next">Next Steps</a>
+      <a href="#about">About</a>
+      <a href="#toolkit" class="nav-cta">Start Toolkit</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main id="top">
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+
+      <div class="eyebrow">
+        ✦ YOUR CAREER • YOUR VALUE • YOUR NEXT MOVE
+      </div>
+
+      <h1>
+        Know what you
+        <span>really need</span>
+        to charge.
+      </h1>
+
+      <p>
+        A practical freelancer career toolkit to help you understand your
+        rate, simplify your CV, build your portfolio and create professional
+        invoices — all in one place.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#toolkit" class="btn btn-primary">
+          Open My Toolkit
+        </a>
+
+        <a href="#next" class="btn btn-secondary">
+          Explore Next Steps
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <div class="hero-card-top">
+        <strong>Your Career Snapshot</strong>
+        <span class="badge">COMPLETE TOOLKIT</span>
+      </div>
+
+      <div class="rate-preview">
+        <small>Know your minimum sustainable rate</small>
+        <strong>₱ — / hour</strong>
+        <span style="color:var(--muted);font-size:12px;">
+          Start with your real monthly needs.
+        </span>
+      </div>
+
+      <div class="mini-row">
+
+        <div class="mini-box">
+          <small>CV</small>
+          <strong>Ready to simplify</strong>
+        </div>
+
+        <div class="mini-box">
+          <small>Portfolio</small>
+          <strong>Ready to build</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TOOLKIT -->
+
+<section id="toolkit">
+
+  <div class="container">
+
+    <div class="section-head">
+      <h2>Your Freelancer Toolkit</h2>
+      <p>
+        Four practical tools designed to help you move from
+        “I think I can do this” to “I know my value.”
+      </p>
+    </div>
+
+
+    <div class="tool-nav">
+
+      <button class="tool-tab active" onclick="openTool('rate',this)">
+        💰 Know My Rate
+        <small>Calculate your real rate</small>
+      </button>
+
+      <button class="tool-tab" onclick="openTool('cv',this)">
+        📄 Simplify My CV
+        <small>Make your experience clearer</small>
+      </button>
+
+      <button class="tool-tab" onclick="openTool('portfolio',this)">
+        💼 Create My Portfolio
+        <small>Turn experience into proof</small>
+      </button>
+
+      <button class="tool-tab" onclick="openTool('invoice',this)">
+        🧾 Create My Invoice
+        <small>Bill professionally</small>
+      </button>
+
+    </div>
+
+
+    <!-- RATE TOOL -->
+
+    <div id="rate" class="tool-section active">
+
+      <div class="two-col">
+
+        <div class="card">
+
+          <h3>💰 Know My Rate</h3>
+
+          <p style="color:var(--muted);font-size:14px;margin-bottom:22px;">
+            Start with what you actually need to earn — not what someone
+            else tells you you're worth.
+          </p>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="rateCurrency">Working currency</label>
+
+              <select id="rateCurrency">
+                <option value="PHP">PHP — Philippine Peso</option>
+                <option value="USD">USD — US Dollar</option>
+                <option value="AUD">AUD — Australian Dollar</option>
+                <option value="CAD">CAD — Canadian Dollar</option>
+                <option value="NZD">NZD — New Zealand Dollar</option>
+                <option value="GBP">GBP — British Pound</option>
+                <option value="EUR">EUR — Euro</option>
+                <option value="SGD">SGD — Singapore Dollar</option>
+                <option value="SAR">SAR — Saudi Riyal</option>
+                <option value="AED">AED — UAE Dirham</option>
+                <option value="KWD">KWD — Kuwaiti Dinar</option>
+                <option value="BHD">BHD — Bahraini Dinar</option>
+                <option value="JPY">JPY — Japanese Yen</option>
+                <option value="CHF">CHF — Swiss Franc</option>
+                <option value="HKD">HKD — Hong Kong Dollar</option>
+                <option value="MYR">MYR — Malaysian Ringgit</option>
+                <option value="THB">THB — Thai Baht</option>
+                <option value="INR">INR — Indian Rupee</option>
+                <option value="KRW">KRW — South Korean Won</option>
+                <option value="ZAR">ZAR — South African Rand</option>
+                <option value="SEK">SEK — Swedish Krona</option>
+                <option value="NOK">NOK — Norwegian Krone</option>
+                <option value="DKK">DKK — Danish Krone</option>
+                <option value="PLN">PLN — Polish Zloty</option>
+                <option value="BRL">BRL — Brazilian Real</option>
+                <option value="MXN">MXN — Mexican Peso</option>
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="monthlyIncome">
+                Target monthly income
+              </label>
+
+              <input
+                type="number"
+                id="monthlyIncome"
+                min="0"
+                placeholder="e.g. 60000"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label for="hoursWeek">
+                Work hours / week
+              </label>
+
+              <input
+                type="number"
+                id="hoursWeek"
+                value="40"
+                min="1"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="billable">
+                Billable time %
+              </label>
+
+              <input
+                type="number"
+                id="billable"
+                value="70"
+                min="1"
+                max="100"
+              >
+
+              <div class="form-note">
+                Not every working hour is billable.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label for="workSource">
+                Work source
+              </label>
+
+              <select id="workSource">
+
+                <option value="0">
+                  Direct client
+                </option>
+
+                <option value="10">
+                  Upwork — reference platform fee
+                </option>
+
+                <option value="20">
+                  Fiverr — reference platform fee
+                </option>
+
+                <option value="0">
+                  OnlineJobs.ph — no platform fee assumed
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="paymentMethod">
+                Payment method
+              </label>
+
+              <select id="paymentMethod">
+
+                <option value="1">
+                  Wise / Payoneer — reference fee
+                </option>
+
+                <option value="4.5">
+                  PayPal — reference fee
+                </option>
+
+                <option value="1.5">
+                  Bank transfer — reference fee
+                </option>
+
+                <option value="0">
+                  Other / no fee entered
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="taxRate">
+              Estimated tax rate %
+            </label>
+
+            <input
+              type="number"
+              id="taxRate"
+              value="10"
+              min="0"
+              max="100"
+            >
+
+            <div class="form-note">
+              Enter your own estimated rate. Tax obligations vary by country,
+              income type and situation.
+            </div>
+
+          </div>
+
+
+          <button class="btn btn-primary" onclick="calculateRate()">
+            Calculate My Rate
+          </button>
+
+        </div>
+
+
+        <div>
+
+          <div id="rateResult" class="result">
+
+            <h3>Your Rate Reality Check</h3>
+
+            <div class="result-main">
+
+              <small>
+                Your calculated minimum hourly rate
+              </small>
+
+              <strong id="hourlyResult">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="result-grid">
+
+              <div class="result-box">
+                <small>Monthly need</small>
+                <strong id="monthlyResult">—</strong>
+              </div>
+
+              <div class="result-box">
+                <small>Billable hours</small>
+                <strong id="billableResult">—</strong>
+              </div>
+
+              <div class="result-box">
+                <small>USD reference</small>
+                <strong id="usdResult">—</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="disclaimer">
+
+            <strong>Important:</strong>
+            This calculator is a planning tool, not financial or tax advice.
+            Exchange rates, platform fees, payment fees and taxes can change.
+            Always verify current rates with the relevant provider or authority.
+
+          </div>
+
+
+          <div class="card" style="margin-top:18px;">
+
+            <h3>🌍 Currency Converter</h3>
+
+            <p style="font-size:13px;color:var(--muted);margin:6px 0 17px;">
+              Convert an amount between supported currencies.
+            </p>
+
+
+            <div class="converter">
+
+              <div class="converter-grid">
+
+                <div class="form-group">
+
+                  <label>Amount</label>
+
+                  <input
+                    type="number"
+                    id="convertAmount"
+                    value="1"
+                    min="0"
+                    oninput="convertCurrency()"
+                  >
+
+                </div>
+
+
+                <button
+                  class="swap"
+                  onclick="swapCurrencies()"
+                  title="Swap currencies"
+                >
+                  ⇄
+                </button>
+
+
+                <div class="form-group">
+
+                  <label>From</label>
+
+                  <select id="convertFrom" onchange="convertCurrency()">
+                    <option>USD</option>
+                    <option>PHP</option>
+                    <option>AUD</option>
+                    <option>CAD</option>
+                    <option>NZD</option>
+                    <option>GBP</option>
+                    <option>EUR</option>
+                    <option>SGD</option>
+                    <option>SAR</option>
+                    <option>AED</option>
+                    <option>KWD</option>
+                    <option>BHD</option>
+                  </select>
+
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>To</label>
+
+                <select id="convertTo" onchange="convertCurrency()">
+                  <option>PHP</option>
+                  <option>USD</option>
+                  <option>AUD</option>
+                  <option>CAD</option>
+                  <option>NZD</option>
+                  <option>GBP</option>
+                  <option>EUR</option>
+                  <option>SGD</option>
+                  <option>SAR</option>
+                  <option>AED</option>
+                  <option>KWD</option>
+                  <option>BHD</option>
+                </select>
+
+              </div>
+
+
+              <div style="font-size:22px;font-weight:900;margin-top:8px;">
+                <span id="conversionResult">—</span>
+              </div>
+
+              <div class="form-note" style="margin-top:8px;">
+                Reference conversion only. The live-rate connection will be
+                added through the secure data layer in the next build stage.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+
+            <button class="btn btn-secondary" onclick="saveRateCard()">
+              ↓ Save Rate Card
+            </button>
+
+            <button class="btn btn-secondary" onclick="window.print()">
+              🖨 Print / PDF
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CV TOOL -->
+
+    <div id="cv" class="tool-section">
+
+      <div class="two-col">
+
+        <div class="card">
+
+          <h3>📄 Simplify My CV</h3>
+
+          <p style="color:var(--muted);font-size:14px;margin:7px 0 22px;">
+            Give your experience some breathing room. Start by pasting your
+            current CV and identifying the role you want.
+          </p>
+
+
+          <div class="form-group">
+
+            <label for="targetRole">
+              Target role / niche
+            </label>
+
+            <input
+              id="targetRole"
+              placeholder="e.g. Executive Virtual Assistant"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="cvText">
+              Paste your existing CV
+            </label>
+
+            <textarea
+              id="cvText"
+              placeholder="Paste your CV text here..."
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="cvFile">
+              Upload a text-based CV file
+            </label>
+
+            <input
+              type="file"
+              id="cvFile"
+              accept=".txt,.md,.html"
+              onchange="loadCVFile(event)"
+            >
+
+            <div class="form-note">
+              You can also paste your CV directly above.
+            </div>
+
+          </div>
+
+
+          <button class="btn btn-primary" onclick="simplifyCV()">
+            Simplify My CV
+          </button>
+
+
+          <div class="ai-notice">
+            <strong>✨ AI Co-Pilot:</strong>
+            Your secure AI rewriting layer will be connected in the next
+            development stage. This interface is already prepared for it.
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>CV Workspace</h3>
+
+          <div id="cvPreview" class="preview">
+
+            <h3>Your simplified CV will appear here.</h3>
+
+            <p style="color:var(--muted);font-size:14px;">
+              Add your target role and existing CV, then select
+              <strong>Simplify My CV</strong>.
+            </p>
+
+          </div>
+
+          <div style="margin-top:15px;display:flex;gap:10px;flex-wrap:wrap;">
+
+            <button class="btn btn-secondary" onclick="downloadCV()">
+              ↓ Download CV
+            </button>
+
+            <button class="btn btn-secondary" onclick="window.print()">
+              🖨 Print / PDF
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- PORTFOLIO TOOL -->
+
+    <div id="portfolio" class="tool-section">
+
+      <div class="two-col">
+
+        <div class="card">
+
+          <h3>💼 Create My Portfolio</h3>
+
+          <p style="color:var(--muted);font-size:14px;margin:7px 0 22px;">
+            Turn your experience, skills, certificates and projects into a
+            professional portfolio.
+          </p>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label>Your name</label>
+
+              <input id="portfolioName" placeholder="Your name">
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Professional title</label>
+
+              <input
+                id="portfolioTitle"
+                placeholder="e.g. Virtual Assistant"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Professional summary</label>
+
+            <textarea
+              id="portfolioSummary"
+              placeholder="Tell clients what you do and what you bring."
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Skills</label>
+
+            <textarea
+              id="portfolioSkills"
+              placeholder="e.g. Google Workspace, Canva, Asana, Social Media..."
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Certificates / courses</label>
+
+            <textarea
+              id="portfolioCertificates"
+              placeholder="List your certificates and completed courses."
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Alison certificates</label>
+
+            <textarea
+              id="alisonCertificates"
+              placeholder="Add your Alison courses or certificates."
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Experience / projects</label>
+
+            <textarea
+              id="portfolioExperience"
+              placeholder="Describe your experience, projects or achievements."
+            ></textarea>
+
+          </div>
+
+
+          <button class="btn btn-primary" onclick="buildPortfolio()">
+            Build My Portfolio
+          </button>
+
+
+          <div class="ai-notice">
+            <strong>✨ AI Co-Pilot:</strong>
+            The secure AI layer will later organize and strengthen your
+            information automatically.
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>Portfolio Preview</h3>
+
+          <div id="portfolioPreview" class="preview">
+
+            <h3>Your professional story starts here.</h3>
+
+            <p style="color:var(--muted);font-size:14px;">
+              Complete the fields on the left and generate your portfolio
+              preview.
+            </p>
+
+          </div>
+
+
+          <div style="margin-top:15px;display:flex;gap:10px;flex-wrap:wrap;">
+
+            <button class="btn btn-secondary" onclick="downloadPortfolio()">
+              ↓ Download Portfolio
+            </button>
+
+            <button class="btn btn-secondary" onclick="window.print()">
+              🖨 Print / PDF
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- INVOICE TOOL -->
+
+    <div id="invoice" class="tool-section">
+
+      <div class="two-col">
+
+        <div class="card">
+
+          <h3>🧾 Create My Invoice</h3>
+
+          <p style="color:var(--muted);font-size:14px;margin:7px 0 22px;">
+            Create a clean invoice based on your hours, rate, taxes,
+            deductions and additional work.
+          </p>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label>Your name</label>
+
+              <input
+                id="invoiceFrom"
+                placeholder="Your name / business"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Invoice number</label>
+
+              <input
+                id="invoiceNumber"
+                value="INV-001"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Client name</label>
+
+            <input
+              id="invoiceClient"
+              placeholder="Client name / company"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Client email</label>
+
+            <input
+              type="email"
+              id="invoiceEmail"
+              placeholder="client@example.com"
+            >
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label>Currency</label>
+
+              <select id="invoiceCurrency">
+
+                <option>PHP</option>
+                <option>USD</option>
+                <option>AUD</option>
+                <option>CAD</option>
+                <option>NZD</option>
+                <option>GBP</option>
+                <option>EUR</option>
+                <option>SGD</option>
+                <option>SAR</option>
+                <option>AED</option>
+                <option>KWD</option>
+                <option>BHD</option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Hourly rate</label>
+
+              <input
+                type="number"
+                id="invoiceRate"
+                placeholder="0"
+                min="0"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label>Hours worked</label>
+
+              <input
+                type="number"
+                id="invoiceHours"
+                value="1"
+                min="0"
+                step=".01"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Tax %</label>
+
+              <input
+                type="number"
+                id="invoiceTax"
+                value="0"
+                min="0"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label>Deductions</label>
+
+              <input
+                type="number"
+                id="invoiceDeductions"
+                value="0"
+                min="0"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Additional work</label>
+
+              <input
+                type="number"
+                id="invoiceAdditional"
+                value="0"
+                min="0"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Notes</label>
+
+            <textarea
+              id="invoiceNotes"
+              placeholder="Thank you for your business..."
+            ></textarea>
+
+          </div>
+
+
+          <button class="btn btn-primary" onclick="generateInvoice()">
+            Create My Invoice
+          </button>
+
+
+          <div class="ai-notice">
+            <strong>✨ AI Co-Pilot:</strong>
+            A secure AI invoice assistant will be connected in the next
+            development stage to help describe work and organize invoice
+            information.
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>Invoice Preview</h3>
+
+          <div id="invoicePreview" class="invoice-preview">
+
+            <div class="invoice-head">
+
+              <div>
+                <div class="invoice-title">INVOICE</div>
+                <div style="color:var(--muted);">
+                  Your professional invoice
+                </div>
+              </div>
+
+              <div style="text-align:right;">
+                <strong id="previewInvoiceNumber">
+                  INV-001
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div class="preview-line">
+              <strong>From:</strong>
+              <span id="previewFrom">—</span>
+            </div>
+
+            <div class="preview-line">
+              <strong>Bill To:</strong>
+              <span id="previewClient">—</span>
+            </div>
+
+            <div class="preview-line">
+              <strong>Email:</strong>
+              <span id="previewEmail">—</span>
+            </div>
+
+
+            <table class="invoice-table">
+
+              <thead>
+
+                <tr>
+                  <th>Description</th>
+                  <th>Qty</th>
+                  <th>Rate</th>
+                  <th>Total</th>
+                </tr>
+
+              </thead>
+
+              <tbody id="invoiceRows">
+
+                <tr>
+                  <td>Freelance services</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+
+            <div class="invoice-total">
+
+              <div class="total-row">
+                <span>Subtotal</span>
+                <strong id="invoiceSubtotal">—</strong>
+              </div>
+
+              <div class="total-row">
+                <span>Tax</span>
+                <strong id="invoiceTaxAmount">—</strong>
+              </div>
+
+              <div class="total-row">
+                <span>Deductions</span>
+                <strong id="invoiceDeductionAmount">—</strong>
+              </div>
+
+              <div class="total-row final">
+                <span>Total</span>
+                <strong id="invoiceTotal">—</strong>
+              </div>
+
+            </div>
+
+
+            <div style="margin-top:25px;color:var(--muted);font-size:13px;">
+              <strong>Notes:</strong>
+              <div id="previewNotes">—</div>
+            </div>
+
+          </div>
+
+
+          <div style="margin-top:15px;display:flex;gap:10px;flex-wrap:wrap;">
+
+            <button class="btn btn-secondary" onclick="downloadInvoice()">
+              ↓ Download Invoice
+            </button>
+
+            <button class="btn btn-secondary" onclick="emailInvoice()">
+              ✉ Email
+            </button>
+
+            <button class="btn btn-secondary" onclick="window.print()">
+              🖨 Print / PDF
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WHY TOOLKIT -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-head">
+      <h2>More than a calculator.</h2>
+
+      <p>
+        Your rate is only one piece of the freelance puzzle.
+        The toolkit helps you turn your experience into something you can
+        confidently present, share and get paid for.
+      </p>
+    </div>
+
+
+    <div class="three-col">
+
+      <div class="feature-card">
+
+        <div class="feature-icon">💰</div>
+
+        <h3>Know Your Value</h3>
+
+        <p>
+          Understand the rate you need based on income goals, billable time,
+          taxes and common platform/payment considerations.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">📄</div>
+
+        <h3>Present Your Experience</h3>
+
+        <p>
+          Simplify your CV and organize your professional story around the
+          role you're actually pursuing.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">🧾</div>
+
+        <h3>Get Paid Professionally</h3>
+
+        <p>
+          Create clean invoices that make your work, rate and payment
+          expectations easier for clients to understand.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- NEXT STEPS -->
+
+<section id="next">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <h2>🌱 Your Next Steps</h2>
+
+      <p>
+        The toolkit can help you understand where you are.
+        These resources can help you decide where to go next.
+      </p>
+
+    </div>
+
+
+    <div class="three-col">
+
+      <div class="feature-card next-card">
+
+        <div>
+
+          <div class="feature-icon">🧭</div>
+
+          <h3>Find Your Niche 3.0</h3>
+
+          <p>
+            Not sure which direction fits you?
+            Start with a simple niche discovery assessment.
+          </p>
+
+        </div>
+
+        <a
+          href="https://cathiesnest.github.io/tabing-guhit-3.0/"
+          target="_blank"
+          rel="noopener"
+        >
+          Find My Niche →
+        </a>
+
+      </div>
+
+
+      <div class="feature-card next-card">
+
+        <div>
+
+          <div class="feature-icon">🎓</div>
+
+          <h3>Explore Alison</h3>
+
+          <p>
+            Explore career guides and certificate courses to keep building
+            practical skills.
+          </p>
+
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+
+          <a
+            href="https://alison.com/careers?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117"
+            target="_blank"
+            rel="noopener"
+          >
+            Career Guide →
+          </a>
+
+          <a
+            href="https://alison.com/certificate-courses?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117"
+            target="_blank"
+            rel="noopener"
+          >
+            Courses →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature-card next-card">
+
+        <div>
+
+          <div class="feature-icon">🌿</div>
+
+          <h3>Self Love Academy</h3>
+
+          <p>
+            Career growth matters — but so does remembering the person
+            behind the goals.
+          </p>
+
+        </div>
+
+        <a
+          href="https://cathiesnest.github.io/self-love-academy/"
+          target="_blank"
+          rel="noopener"
+        >
+          Visit Self Love Academy →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="container">
+
+    <div class="card">
+
+      <div class="section-head" style="margin-bottom:0;">
+
+        <h2>Built for the person behind the profile.</h2>
+
+        <p>
+          Rate Reality Check was created around a simple idea:
+          your career decisions should be based on reality — your needs,
+          your skills, your experience and your goals.
+        </p>
+
+        <p style="margin-top:12px;">
+          No complicated account setup.
+          No unnecessary barriers.
+          Just practical tools to help you move forward.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        Rate Reality Check
+
+        <small>
+          Freelancer Career Toolkit
+        </small>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#toolkit">Toolkit</a>
+
+        <a href="#next">Next Steps</a>
+
+        <a href="#about">About</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="year"></span>
+      Rate Reality Check.
+      Powered by CathiesNest Digital.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- MODAL -->
+
+<div id="messageModal" class="modal">
+
+  <div class="modal-box">
+
+    <h3 id="modalTitle">
+      Rate Reality Check
+    </h3>
+
+    <p id="modalMessage">
+      Your action has been completed.
+    </p>
+
+    <button
+      class="btn btn-primary"
+      onclick="closeModal()"
+    >
+      Got it
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   BASIC HELPERS
+========================================================= */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+function showMessage(title,message){
+
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalMessage").textContent = message;
+
+  document
+    .getElementById("messageModal")
+    .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+  document
+    .getElementById("messageModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   TOOL NAVIGATION
+========================================================= */
+
+function openTool(toolId,button){
+
+  document
+    .querySelectorAll(".tool-section")
+    .forEach(section=>{
+      section.classList.remove("active");
+    });
+
+  document
+    .getElementById(toolId)
+    .classList.add("active");
+
+  document
+    .querySelectorAll(".tool-tab")
+    .forEach(tab=>{
+      tab.classList.remove("active");
+    });
+
+  button.classList.add("active");
+
+  document
+    .getElementById("toolkit")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+}
+
+
+/* =========================================================
+   CURRENCY REFERENCE DATA
+   NOTE:
+   These are planning/reference values only.
+   They are NOT presented as live exchange rates.
+========================================================= */
+
+const referencePHP = {
+
+  PHP:1,
+
+  USD:58.0,
+  AUD:41.5,
+  CAD:42.0,
+  NZD:35.5,
+  GBP:78.0,
+  EUR:68.0,
+  SGD:45.0,
+
+  SAR:15.5,
+  AED:15.8,
+  KWD:189.0,
+  BHD:154.0,
+
+  JPY:.39,
+  CHF:72.0,
+  HKD:7.4,
+  MYR:13.6,
+  THB:1.7,
+  INR:.69,
+  KRW:.043,
+  ZAR:3.3,
+  SEK:5.6,
+  NOK:5.7,
+  DKK:9.1,
+  PLN:15.0,
+  BRL:11.5,
+  MXN:3.3
+
+};
+
+
+const currencySymbols = {
+
+  PHP:"₱",
+  USD:"$",
+  AUD:"A$",
+  CAD:"C$",
+  NZD:"NZ$",
+  GBP:"£",
+  EUR:"€",
+  SGD:"S$",
+  SAR:"﷼",
+  AED:"د.إ",
+  KWD:"KD",
+  BHD:"BD",
+  JPY:"¥",
+  CHF:"CHF",
+  HKD:"HK$",
+  MYR:"RM",
+  THB:"฿",
+  INR:"₹",
+  KRW:"₩",
+  ZAR:"R",
+  SEK:"kr",
+  NOK:"kr",
+  DKK:"kr",
+  PLN:"zł",
+  BRL:"R$",
+  MXN:"MX$"
+
+};
+
+
+function formatCurrency(amount,currency){
+
+  const symbol =
+    currencySymbols[currency] || currency;
+
+  return symbol + " " +
+    Number(amount).toLocaleString(
+      undefined,
+      {
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+      }
+    );
+
+}
+
+
+/* =========================================================
+   RATE CALCULATOR
+========================================================= */
+
+function calculateRate(){
+
+  const currency =
+    document.getElementById("rateCurrency").value;
+
+  const monthly =
+    Number(document.getElementById("monthlyIncome").value);
+
+  const hoursWeek =
+    Number(document.getElementById("hoursWeek").value);
+
+  const billable =
+    Number(document.getElementById("billable").value);
+
+  const platformRate =
+    Number(document.getElementById("workSource").value);
+
+  const paymentRate =
+    Number(document.getElementById("paymentMethod").value);
+
+  const taxRate =
+    Number(document.getElementById("taxRate").value);
+
+
+  if(
+    !monthly ||
+    monthly <= 0 ||
+    !hoursWeek ||
+    hoursWeek <= 0 ||
+    !billable ||
+    billable <= 0
+  ){
+
+    showMessage(
+      "Almost there",
+      "Please enter your target monthly income, work hours and billable percentage."
+    );
+
+    return;
+
+  }
+
+
+  const monthlyHours =
+    hoursWeek * 4.333;
+
+  const billableHours =
+    monthlyHours * (billable / 100);
+
+
+  /*
+    Convert target income to PHP first
+    using the planning/reference currency table.
+  */
+
+  const phpTarget =
+    monthly *
+    (referencePHP[currency] || 1);
+
+
+  /*
+    Add tax requirement.
+  */
+
+  const taxMultiplier =
+    1 + (taxRate / 100);
+
+
+  const afterTaxTarget =
+    phpTarget * taxMultiplier;
+
+
+  /*
+    Platform + payment considerations.
+  */
+
+  const combinedFees =
+    (platformRate + paymentRate) / 100;
+
+
+  const feeMultiplier =
+    1 - combinedFees;
+
+
+  const safeMultiplier =
+    feeMultiplier > 0 ? feeMultiplier : 1;
+
+
+  const requiredPHP =
+    afterTaxTarget /
+    safeMultiplier;
+
+
+  const phpHourly =
+    requiredPHP /
+    billableHours;
+
+
+  /*
+    Convert PHP hourly back to selected currency.
+  */
+
+  const hourlySelected =
+    phpHourly /
+    (referencePHP[currency] || 1);
+
+
+  const usdHourly =
+    phpHourly /
+    referencePHP.USD;
+
+
+  const monthlyFormatted =
+    formatCurrency(monthly,currency);
+
+
+  document.getElementById("hourlyResult").textContent =
+    formatCurrency(hourlySelected,currency) + " / hr";
+
+
+  document.getElementById("monthlyResult").textContent =
+    monthlyFormatted;
+
+
+  document.getElementById("billableResult").textContent =
+    billableHours.toFixed(1) + " hrs";
+
+
+  document.getElementById("usdResult").textContent =
+    formatCurrency(usdHourly,"USD") + " / hr";
+
+
+  /*
+    Save result locally.
+  */
+
+  localStorage.setItem(
+    "rrc_rate_result",
+    JSON.stringify({
+
+      currency,
+      monthly,
+      hoursWeek,
+      billable,
+      platformRate,
+      paymentRate,
+      taxRate,
+      hourlySelected,
+      phpHourly,
+      usdHourly,
+      billableHours
+
+    })
+  );
+
+}
+
+
+/* =========================================================
+   RATE CARD
+========================================================= */
+
+function saveRateCard(){
+
+  const saved =
+    localStorage.getItem("rrc_rate_result");
+
+
+  if(!saved){
+
+    showMessage(
+      "No rate yet",
+      "Please calculate your rate first."
+    );
+
+    return;
+
+  }
+
+
+  const data =
+    JSON.parse(saved);
+
+
+  const text = `RATE REALITY CHECK
+FREELANCER RATE CARD
+
+==============================
+
+Recommended minimum hourly rate:
+${formatCurrency(data.hourlySelected,data.currency)} / hour
+
+USD reference:
+${formatCurrency(data.usdHourly,"USD")} / hour
+
+Target monthly income:
+${formatCurrency(data.monthly,data.currency)}
+
+Work hours / week:
+${data.hoursWeek}
+
+Billable percentage:
+${data.billable}%
+
+Estimated billable hours / month:
+${data.billableHours.toFixed(1)}
+
+Estimated tax rate:
+${data.taxRate}%
+
+Platform consideration:
+${data.platformRate}%
+
+Payment consideration:
+${data.paymentRate}%
+
+==============================
+
+Planning note:
+This rate card is a planning tool.
+Verify current exchange rates, platform fees,
+payment-provider fees and tax obligations
+before making financial decisions.
+
+Powered by CathiesNest Digital
+`;
+
+  downloadTextFile(
+    text,
+    "rate-reality-check-rate-card.txt"
+  );
+
+}
+
+
+/* =========================================================
+   CURRENCY CONVERTER
+========================================================= */
+
+function convertCurrency(){
+
+  const amount =
+    Number(document.getElementById("convertAmount").value);
+
+  const from =
+    document.getElementById("convertFrom").value;
+
+  const to =
+    document.getElementById("convertTo").value;
+
+
+  if(!amount){
+
+    document.getElementById("conversionResult").textContent =
+      "—";
+
+    return;
+
+  }
+
+
+  const fromPHP =
+    referencePHP[from] || 1;
+
+  const toPHP =
+    referencePHP[to] || 1;
+
+
+  const amountPHP =
+    amount * fromPHP;
+
+
+  const converted =
+    amountPHP / toPHP;
+
+
+  document.getElementById("conversionResult").textContent =
+    formatCurrency(converted,to);
+
+}
+
+
+function swapCurrencies(){
+
+  const from =
+    document.getElementById("convertFrom");
+
+  const to =
+    document.getElementById("convertTo");
+
+
+  const temp =
+    from.value;
+
+  from.value =
+    to.value;
+
+  to.value =
+    temp;
+
+
+  convertCurrency();
+
+}
+
+
+/* =========================================================
+   CV FILE
+========================================================= */
+
+function loadCVFile(event){
+
+  const file =
+    event.target.files[0];
+
+  if(!file) return;
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload =
+    function(e){
+
+      document.getElementById("cvText").value =
+        e.target.result;
+
+    };
+
+
+  reader.readAsText(file);
+
+}
+
+
+/* =========================================================
+   CV SIMPLIFIER
+========================================================= */
+
+function simplifyCV(){
+
+  const role =
+    document.getElementById("targetRole").value.trim();
+
+  const cv =
+    document.getElementById("cvText").value.trim();
+
+
+  if(!cv){
+
+    showMessage(
+      "Add your CV",
+      "Paste your CV text or upload a text-based CV file first."
+    );
+
+    return;
+
+  }
+
+
+  const preview =
+    document.getElementById("cvPreview");
+
+
+  const paragraphs =
+    cv
+      .split(/\n+/)
+      .filter(Boolean)
+      .slice(0,12);
+
+
+  let html = "";
+
+  if(role){
+
+    html += `
+      <div class="preview-line">
+        <strong>Target role</strong>
+        ${escapeHTML(role)}
+      </div>
+    `;
+
+  }
+
+
+  html += `
+    <div style="margin-top:18px;">
+      <strong>Current CV content</strong>
+    </div>
+  `;
+
+
+  paragraphs.forEach((paragraph,index)=>{
+
+    html += `
+      <div class="preview-line">
+        ${escapeHTML(paragraph)}
+      </div>
+    `;
+
+  });
+
+
+  preview.innerHTML =
+    html;
+
+
+  localStorage.setItem(
+    "rrc_cv",
+    JSON.stringify({
+      role,
+      cv
+    })
+  );
+
+}
+
+
+function downloadCV(){
+
+  const role =
+    document.getElementById("targetRole").value;
+
+  const cv =
+    document.getElementById("cvText").value;
+
+
+  if(!cv){
+
+    showMessage(
+      "Nothing to download",
+      "Add your CV first."
+    );
+
+    return;
+
+  }
+
+
+  const text =
+`RATE REALITY CHECK — CV WORKSPACE
+
+TARGET ROLE:
+${role || "Not specified"}
+
+==============================
+
+${cv}
+
+==============================
+
+Prepared with Rate Reality Check
+Powered by CathiesNest Digital
+`;
+
+  downloadTextFile(
+    text,
+    "rate-reality-check-cv.txt"
+  );
+
+}
+
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+function buildPortfolio(){
+
+  const name =
+    document.getElementById("portfolioName").value;
+
+  const title =
+    document.getElementById("portfolioTitle").value;
+
+  const summary =
+    document.getElementById("portfolioSummary").value;
+
+  const skills =
+    document.getElementById("portfolioSkills").value;
+
+  const certificates =
+    document.getElementById("portfolioCertificates").value;
+
+  const alison =
+    document.getElementById("alisonCertificates").value;
+
+  const experience =
+    document.getElementById("portfolioExperience").value;
+
+
+  if(!name && !title){
+
+    showMessage(
+      "Start your portfolio",
+      "Add at least your name or professional title."
+    );
+
+    return;
+
+  }
+
+
+  const preview =
+    document.getElementById("portfolioPreview");
+
+
+  preview.innerHTML = `
+
+    <h2>${escapeHTML(name || "Your Name")}</h2>
+
+    <p style="color:var(--sage);font-weight:800;">
+      ${escapeHTML(title || "Professional")}
+    </p>
+
+    <div style="margin-top:20px;">
+
+      <div class="preview-line">
+        <strong>About</strong>
+        ${escapeHTML(summary || "Add your professional summary.")}
+      </div>
+
+      <div class="preview-line">
+        <strong>Skills</strong>
+        ${escapeHTML(skills || "Add your skills.")}
+      </div>
+
+      <div class="preview-line">
+        <strong>Certificates</strong>
+        ${escapeHTML(certificates || "Add certificates.")}
+      </div>
+
+      <div class="preview-line">
+        <strong>Alison</strong>
+        ${escapeHTML(alison || "Add Alison certificates.")}
+      </div>
+
+      <div class="preview-line">
+        <strong>Experience</strong>
+        ${escapeHTML(experience || "Add your experience and projects.")}
+      </div>
+
+    </div>
+
+  `;
+
+
+  localStorage.setItem(
+    "rrc_portfolio",
+    JSON.stringify({
+
+      name,
+      title,
+      summary,
+      skills,
+      certificates,
+      alison,
+      experience
+
+    })
+  );
+
+}
+
+
+function downloadPortfolio(){
+
+  const name =
+    document.getElementById("portfolioName").value;
+
+  const title =
+    document.getElementById("portfolioTitle").value;
+
+  const summary =
+    document.getElementById("portfolioSummary").value;
+
+  const skills =
+    document.getElementById("portfolioSkills").value;
+
+  const certificates =
+    document.getElementById("portfolioCertificates").value;
+
+  const alison =
+    document.getElementById("alisonCertificates").value;
+
+  const experience =
+    document.getElementById("portfolioExperience").value;
+
+
+  if(!name && !title){
+
+    showMessage(
+      "Nothing to download",
+      "Add some portfolio information first."
+    );
+
+    return;
+
+  }
+
+
+  const text =
+`RATE REALITY CHECK
+PROFESSIONAL PORTFOLIO
+
+${name}
+
+${title}
+
+==============================
+
+ABOUT
+${summary}
+
+SKILLS
+${skills}
+
+CERTIFICATES / COURSES
+${certificates}
+
+ALISON CERTIFICATES
+${alison}
+
+EXPERIENCE / PROJECTS
+${experience}
+
+==============================
+
+Powered by CathiesNest Digital
+`;
+
+  downloadTextFile(
+    text,
+    "rate-reality-check-portfolio.txt"
+  );
+
+}
+
+
+/* =========================================================
+   INVOICE
+========================================================= */
+
+function generateInvoice(){
+
+  const from =
+    document.getElementById("invoiceFrom").value;
+
+  const client =
+    document.getElementById("invoiceClient").value;
+
+  const email =
+    document.getElementById("invoiceEmail").value;
+
+  const number =
+    document.getElementById("invoiceNumber").value;
+
+  const currency =
+    document.getElementById("invoiceCurrency").value;
+
+  const rate =
+    Number(document.getElementById("invoiceRate").value);
+
+  const hours =
+    Number(document.getElementById("invoiceHours").value);
+
+  const tax =
+    Number(document.getElementById("invoiceTax").value);
+
+  const deductions =
+    Number(document.getElementById("invoiceDeductions").value);
+
+  const additional =
+    Number(document.getElementById("invoiceAdditional").value);
+
+  const notes =
+    document.getElementById("invoiceNotes").value;
+
+
+  const serviceTotal =
+    rate * hours;
+
+  const subtotal =
+    serviceTotal + additional;
+
+  const taxAmount =
+    subtotal * (tax / 100);
+
+  const total =
+    subtotal + taxAmount - deductions;
+
+
+  document.getElementById("previewInvoiceNumber").textContent =
+    number || "INV-001";
+
+  document.getElementById("previewFrom").textContent =
+    from || "—";
+
+  document.getElementById("previewClient").textContent =
+    client || "—";
+
+  document.getElementById("previewEmail").textContent =
+    email || "—";
+
+
+  document.getElementById("invoiceRows").innerHTML = `
+
+    <tr>
+
+      <td>Freelance services</td>
+
+      <td>${hours}</td>
+
+      <td>${formatCurrency(rate,currency)}</td>
+
+      <td>${formatCurrency(serviceTotal,currency)}</td>
+
+    </tr>
+
+    <tr>
+
+      <td>Additional work</td>
+
+      <td>—</td>
+
+      <td>—</td>
+
+      <td>${formatCurrency(additional,currency)}</td>
+
+    </tr>
+
+  `;
+
+
+  document.getElementById("invoiceSubtotal").textContent =
+    formatCurrency(subtotal,currency);
+
+  document.getElementById("invoiceTaxAmount").textContent =
+    formatCurrency(taxAmount,currency);
+
+  document.getElementById("invoiceDeductionAmount").textContent =
+    formatCurrency(deductions,currency);
+
+  document.getElementById("invoiceTotal").textContent =
+    formatCurrency(total,currency);
+
+  document.getElementById("previewNotes").textContent =
+    notes || "—";
+
+
+  localStorage.setItem(
+    "rrc_invoice",
+    JSON.stringify({
+
+      from,
+      client,
+      email,
+      number,
+      currency,
+      rate,
+      hours,
+      tax,
+      deductions,
+      additional,
+      notes,
+      subtotal,
+      taxAmount,
+      total
+
+    })
+  );
+
+}
+
+
+function downloadInvoice(){
+
+  const saved =
+    localStorage.getItem("rrc_invoice");
+
+
+  if(!saved){
+
+    showMessage(
+      "Create your invoice first",
+      "Generate the invoice before downloading it."
+    );
+
+    return;
+
+  }
+
+
+  const data =
+    JSON.parse(saved);
+
+
+  const text =
+`INVOICE
+
+Invoice Number:
+${data.number}
+
+From:
+${data.from}
+
+Bill To:
+${data.client}
+
+Email:
+${data.email}
+
+==============================
+
+Freelance services
+${data.hours} hours × ${formatCurrency(data.rate,data.currency)}
+
+Additional work:
+${formatCurrency(data.additional,data.currency)}
+
+Subtotal:
+${formatCurrency(data.subtotal,data.currency)}
+
+Tax:
+${formatCurrency(data.taxAmount,data.currency)}
+
+Deductions:
+${formatCurrency(data.deductions,data.currency)}
+
+TOTAL:
+${formatCurrency(data.total,data.currency)}
+
+==============================
+
+Notes:
+${data.notes}
+
+Powered by CathiesNest Digital
+`;
+
+  downloadTextFile(
+    text,
+    "rate-reality-check-invoice.txt"
+  );
+
+}
+
+
+function emailInvoice(){
+
+  const saved =
+    localStorage.getItem("rrc_invoice");
+
+
+  if(!saved){
+
+    showMessage(
+      "Create your invoice first",
+      "Generate the invoice before preparing the email."
+    );
+
+    return;
+
+  }
+
+
+  const data =
+    JSON.parse(saved);
+
+
+  const subject =
+    encodeURIComponent(
+      "Invoice " + data.number
+    );
+
+
+  const body =
+    encodeURIComponent(
+
+`Hi ${data.client || "there"},
+
+Please find the invoice details below.
+
+Invoice: ${data.number}
+
+Total:
+${formatCurrency(data.total,data.currency)}
+
+Thank you.
+
+${data.from || ""}
+
+Rate Reality Check
+Powered by CathiesNest Digital`
+
+    );
+
+
+  window.location.href =
+    "mailto:" +
+    (data.email || "") +
+    "?subject=" +
+    subject +
+    "&body=" +
+    body;
+
+}
+
+
+/* =========================================================
+   DOWNLOAD HELPER
+========================================================= */
+
+function downloadTextFile(text,filename){
+
+  const blob =
+    new Blob(
+      [text],
+      {
+        type:"text/plain;charset=utf-8"
+      }
+    );
+
+
+  const url =
+    URL.createObjectURL(blob);
+
+
+  const link =
+    document.createElement("a");
+
+  link.href =
+    url;
+
+  link.download =
+    filename;
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  document.body.removeChild(link);
+
+  URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================================================
+   SECURITY / DISPLAY HELPER
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   RESTORE SAVED DATA
+========================================================= */
+
+function restoreSavedData(){
+
+  const rateSaved =
+    localStorage.getItem("rrc_rate_result");
+
+
+  if(rateSaved){
+
+    try{
+
+      const data =
+        JSON.parse(rateSaved);
+
+      document.getElementById("rateCurrency").value =
+        data.currency || "PHP";
+
+      document.getElementById("monthlyIncome").value =
+        data.monthly || "";
+
+      document.getElementById("hoursWeek").value =
+        data.hoursWeek || 40;
+
+      document.getElementById("billable").value =
+        data.billable || 70;
+
+      document.getElementById("taxRate").value =
+        data.taxRate || 10;
+
+    }catch(e){}
+
+  }
+
+
+  const cvSaved =
+    localStorage.getItem("rrc_cv");
+
+
+  if(cvSaved){
+
+    try{
+
+      const data =
+        JSON.parse(cvSaved);
+
+      document.getElementById("targetRole").value =
+        data.role || "";
+
+      document.getElementById("cvText").value =
+        data.cv || "";
+
+    }catch(e){}
+
+  }
+
+
+  const portfolioSaved =
+    localStorage.getItem("rrc_portfolio");
+
+
+  if(portfolioSaved){
+
+    try{
+
+      const data =
+        JSON.parse(portfolioSaved);
+
+      document.getElementById("portfolioName").value =
+        data.name || "";
+
+      document.getElementById("portfolioTitle").value =
+        data.title || "";
+
+      document.getElementById("portfolioSummary").value =
+        data.summary || "";
+
+      document.getElementById("portfolioSkills").value =
+        data.skills || "";
+
+      document.getElementById("portfolioCertificates").value =
+        data.certificates || "";
+
+      document.getElementById("alisonCertificates").value =
+        data.alison || "";
+
+      document.getElementById("portfolioExperience").value =
+        data.experience || "";
+
+    }catch(e){}
+
+  }
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+restoreSavedData();
+
+convertCurrency();
+
+</script>
+
+</body>
+</html>
